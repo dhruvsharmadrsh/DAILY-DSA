@@ -4,6 +4,19 @@ using namespace std;
 void InsertionSort(int arr[],int n){
     for(int i=1;i<n;i++){
         for(int j=i;j>0;j--){
+            if(arr[j]>arr[j-1]){
+                swap(arr[j],arr[j-1]);
+            }
+            else{
+                break;
+            }
+        }
+    }
+}
+
+void ReverseInsertionSort(int *arr,int n){
+    for (int i=1;i<n;i++){
+        for(int j=n-i;j<n;j++){
             if(arr[j]<arr[j-1]){
                 swap(arr[j],arr[j-1]);
             }
@@ -30,7 +43,8 @@ int main(){
         cin>>arr[i];
     }
 
-    InsertionSort(arr,n);
+    // InsertionSort(arr,n);
+    ReverseInsertionSort(arr,n);
     printArr(arr,n);
     return 0;
 }
